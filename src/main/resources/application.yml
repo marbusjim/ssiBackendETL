@@ -1,14 +1,14 @@
 # Coneccion de sql server
 spring:
   datasource:
-    url: jdbc:sqlserver://\ASUS\SQL2012;database=ssi_database
+    url: jdbc:sqlserver://\ASUS\SQL2012;database=DW_SSID_DB
     username: sa
     password: control
     platform: mssql
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     database: SQL_SERVER
     show-sql: true
 #Port initialize
