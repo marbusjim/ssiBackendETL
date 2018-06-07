@@ -1,7 +1,7 @@
 # Coneccion de sql server
 spring:
   datasource:
-    url: jdbc:sqlserver://\ASUS\SQL2012;database=DW_SSID_DB
+    url: jdbc:sqlserver://PIERO-ASUS\SQL2012;database=DW_SSID_DB
     username: sa
     password: control
     platform: mssql

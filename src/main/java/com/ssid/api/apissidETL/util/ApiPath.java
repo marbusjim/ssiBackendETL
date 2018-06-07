@@ -1,7 +1,7 @@
 package com.ssid.api.apissidETL.util;
 
 /**
- * @author daniel fernandez
+ * @author Jesús David Piérola Alvarado
  */
 public class ApiPath {
 

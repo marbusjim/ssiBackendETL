@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = ApiPath.REPORT_CHART_PATH)
+@RequestMapping(value = ApiPath.REPORT_TABLE_PATH)
 public class ReportTableController {
     private ReportService reportService;
 
