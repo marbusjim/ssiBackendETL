@@ -11,18 +11,18 @@ import java.util.List;
 
 @Service
 public class ReportServiceImpl implements ReportService {
-    private ReportRepository reportRepository;
+    /*private ReportRepository reportRepository;
 
     @Autowired
     public ReportServiceImpl(ReportRepository reportRepository) {
         this.reportRepository = reportRepository;
     }
-
-    @Transactional
+*/
+    /*@Transactional
     @Override
     public List<DimArea> findAllArea() {
         List<DimArea> results = new ArrayList<>();
         reportRepository.findAll().forEach(results::add);
         return results;
-    }
+    }*/
 }

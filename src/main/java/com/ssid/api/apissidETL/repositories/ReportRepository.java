@@ -4,6 +4,6 @@ import com.ssid.api.apissidETL.domain.DimArea;
 import com.ssid.api.apissidETL.domain.FactIncident;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ReportRepository extends JpaRepository<DimArea, Long>
+public interface ReportRepository //extends JpaRepository<Object, Long>
 {
 }
