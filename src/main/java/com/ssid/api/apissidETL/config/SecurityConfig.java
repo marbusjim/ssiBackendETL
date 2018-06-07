@@ -20,43 +20,10 @@ import java.util.Arrays;
 import static com.ssid.api.apissidETL.util.ApplicationConstants.LOGIN_URL;
 
 /**
- * @author daniel fernandez
+ * @author Jesus David Piérola Alvarado
  */
 @Configuration
-@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    private UserDetailsService userDetailsService;
-
-    @Autowired
-    public SecurityConfig(UserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
-    }
-
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .cors().and()
-                .csrf().disable()
-                .authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL).permitAll()
-                .antMatchers(HttpMethod.GET, "/swagger-ui.htm","/v2/api-docs").permitAll()
-                .anyRequest().authenticated().and()
-                .addFilter(new JWTAuthenticationFilter(authenticationManager()))
-                .addFilter(new JWTAuthorizationFilter(authenticationManager()));
-    }
-
-    @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
-    }
-
-
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();

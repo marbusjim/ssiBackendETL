@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 /**
- * @author daniel fernandez
+ * @author Jesus David Piérola Alvarado
  */
 @Configuration
 @EnableJpaAuditing
