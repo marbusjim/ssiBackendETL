@@ -1,6 +1,7 @@
 package com.ssid.api.apissidETL.services;
 
 import com.ssid.api.apissidETL.DTO.RepoTableDTO;
+import com.ssid.api.apissidETL.DTO.ResultDTO;
 import com.ssid.api.apissidETL.dto.RepoChartDTO;
 import com.sun.xml.internal.fastinfoset.util.StringArray;
 import org.springframework.stereotype.Service;
@@ -80,6 +81,43 @@ public class ReportServiceImpl implements ReportService {
                 data.setIncidentReportedBy((String)res[8]);
                 data.setPositionName((String)res[9]);
                 data.setPositionParent((String)res[10]);
+                result.add(data);
+            }
+        }
+
+        return result;
+    }
+
+    @Override
+    public List<ResultDTO> getAmountsIncidentBySeverity() {
+        List<ResultDTO> res = new ArrayList<>();
+
+        StoredProcedureQuery query = entityManager.createNamedStoredProcedureQuery("GetAmountIncidentBySeverity");
+        query.execute();
+
+        res = mapResults(query.getResultList());
+        return  res;
+    }
+
+    @Override
+    public List<ResultDTO> getAmountsIncidentByType() {
+        List<ResultDTO> res = new ArrayList<>();
+
+        StoredProcedureQuery query = entityManager.createNamedStoredProcedureQuery("GetAmountIncidentByType");
+        query.execute();
+
+        res = mapResults(query.getResultList());
+        return  res;
+    }
+
+    private List<ResultDTO> mapResults(List<Object[]> resultList) {
+        List<ResultDTO> result = new ArrayList<>();
+
+        if(resultList != null) {
+            for (Object[] res : resultList) {
+                ResultDTO data = new ResultDTO();
+                data.setDescription((String)res[0]);
+                data.setAmount((int)res[1]);
                 result.add(data);
             }
         }
