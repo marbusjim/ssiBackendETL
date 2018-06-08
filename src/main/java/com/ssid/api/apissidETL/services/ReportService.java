@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ReportService {
    /* List<DimArea> findAllArea();*/
+//    List<DimArea> GetIncidentSP();
 }
