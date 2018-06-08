@@ -21,8 +21,15 @@ public class ReportServiceImpl implements ReportService {
     public List<RepoChartDTO> getChartDataForReport(Date startDate, Date endDate) {
         List<RepoChartDTO> res = new ArrayList<>();
 
-        //TODO: agregar mapeo de los sp
-        return res;
+        StoredProcedureQuery query = entityManager.createNamedStoredProcedureQuery("GetIncidentByArea");
+        query.setParameter("STARTDATE", startDate);
+        query.setParameter("ENDDATE", endDate);
+
+        query.execute();
+
+        res = mapearRepoChart(query.getResultList());
+
+        return  res;
     }
 
     @Override
@@ -35,12 +42,28 @@ public class ReportServiceImpl implements ReportService {
         query.setParameter("ENDDATE", endDate);
         query.execute();
 
-        res = mapear(query.getResultList());
+        res = mapearRepoTable(query.getResultList());
 
         return res;
     }
 
-    private List<RepoTableDTO> mapear(List<Object[]> resultList) {
+    private List<RepoChartDTO> mapearRepoChart(List<Object[]> resultList) {
+        List<RepoChartDTO> result = new ArrayList<>();
+
+        if(resultList != null) {
+            for (Object[] res : resultList) {
+                RepoChartDTO data = new RepoChartDTO();
+                data.setNumIncidents((int)res[0]);
+                data.setType((String)res[1]);
+                data.setAreaName((String)res[2]);
+                result.add(data);
+            }
+        }
+
+        return result;
+    }
+
+    private List<RepoTableDTO> mapearRepoTable(List<Object[]> resultList) {
         List<RepoTableDTO> result = new ArrayList<>();
 
         if(resultList != null) {

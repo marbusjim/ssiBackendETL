@@ -14,8 +14,14 @@ import java.util.Date;
                         @StoredProcedureParameter(mode = ParameterMode.IN, name = "STARTDATE", type = Date.class),
                         @StoredProcedureParameter(mode = ParameterMode.IN, name = "ENDDATE", type = Date.class)
                 }
-//                ,resultClasses = com.ssid.api.apissidETL.DTO.RepoTableDTO.class
-//                ,resultSetMappings = com.ssid.api.apissidETL.DTO.RepoTableDTO.class
+        ),
+        @NamedStoredProcedureQuery(
+                name = "GetIncidentByArea",
+                procedureName = "GetIncidentByArea",
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "STARTDATE", type = Date.class),
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "ENDDATE", type = Date.class)
+                }
         )
 })
 public class FactIncident implements Serializable {
