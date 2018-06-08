@@ -14,7 +14,6 @@ import java.util.List;
 
 @Service
 public class ReportServiceImpl implements ReportService {
-
     @PersistenceContext
     private EntityManager entityManager;
 
