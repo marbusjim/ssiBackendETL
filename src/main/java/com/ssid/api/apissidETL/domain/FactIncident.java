@@ -6,6 +6,18 @@ import java.util.Date;
 
 @Entity
 @Table(name = "fact_incident")
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "GetIncidentDetails",
+                procedureName = "GetIncidentDetails",
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "STARTDATE", type = Date.class),
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "ENDDATE", type = Date.class)
+                }
+//                ,resultClasses = com.ssid.api.apissidETL.DTO.RepoTableDTO.class
+//                ,resultSetMappings = com.ssid.api.apissidETL.DTO.RepoTableDTO.class
+        )
+})
 public class FactIncident implements Serializable {
     @Id
     @Column(name = "personal_id")

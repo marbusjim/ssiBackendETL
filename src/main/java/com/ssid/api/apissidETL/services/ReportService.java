@@ -1,7 +1,7 @@
 package com.ssid.api.apissidETL.services;
 
+import com.ssid.api.apissidETL.DTO.RepoTableDTO;
 import com.ssid.api.apissidETL.dto.RepoChartDTO;
-import com.ssid.api.apissidETL.dto.RepoTableDTO;
 
 import java.util.Date;
 import java.util.List;
