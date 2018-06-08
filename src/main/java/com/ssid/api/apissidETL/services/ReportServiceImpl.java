@@ -1,36 +1,28 @@
 package com.ssid.api.apissidETL.services;
 
-import com.ssid.api.apissidETL.domain.DimArea;
-import com.ssid.api.apissidETL.repositories.ReportRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ssid.api.apissidETL.dto.RepoChartDTO;
+import com.ssid.api.apissidETL.dto.RepoTableDTO;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class ReportServiceImpl implements ReportService {
-    /*private ReportRepository reportRepository;
-
-    @Autowired
-    public ReportServiceImpl(ReportRepository reportRepository) {
-        this.reportRepository = reportRepository;
-    }
-*/
-    /*@Transactional
     @Override
-    public List<DimArea> findAllArea() {
-        List<DimArea> results = new ArrayList<>();
-        reportRepository.findAll().forEach(results::add);
-        return results;
-    }*/
+    public List<RepoChartDTO> getChartDataForReport(Date startDate, Date endDate) {
+        List<RepoChartDTO> res = new ArrayList<>();
 
-//    protected EntityManager em;
-//
-//    public List<DimArea> GetIncidentSP()
-//    {
-//
-//    }
+        //TODO: agregar mapeo de los sp
+        return res;
+    }
+
+    @Override
+    public List<RepoTableDTO> getTableDataForReport(Date startDate, Date endDate) {
+        List<RepoTableDTO> res = new ArrayList<>();
+
+        //TODO: agregar mapeo de los sp
+        return res;
+    }
 }

@@ -1,10 +1,13 @@
 package com.ssid.api.apissidETL.services;
 
-import com.ssid.api.apissidETL.domain.DimArea;
+import com.ssid.api.apissidETL.dto.RepoChartDTO;
+import com.ssid.api.apissidETL.dto.RepoTableDTO;
 
+import java.util.Date;
 import java.util.List;
 
 public interface ReportService {
-   /* List<DimArea> findAllArea();*/
-//    List<DimArea> GetIncidentSP();
+    List<RepoChartDTO> getChartDataForReport(Date startDate, Date endDate);
+
+    List<RepoTableDTO> getTableDataForReport(Date startDate, Date endDate);
 }

@@ -2,6 +2,7 @@ package com.ssid.api.apissidETL.controller;
 
 import com.ssid.api.apissidETL.services.ReportService;
 import com.ssid.api.apissidETL.util.ApiPath;
+import com.ssid.api.apissidETL.util.FormatAux;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,14 +27,20 @@ public class ReportChartController {
 
         if(startDate != null && endDate != null)
         {
-            mapResponse.put("status", "values");
-            mapResponse.put("start", startDate);
-            mapResponse.put("end", endDate);
+            if (startDate.matches("\\d{4}-\\d{2}-\\d{2}") && startDate.matches("\\d{4}-\\d{2}-\\d{2}")) {
+                mapResponse.put("status", "OK");
+                mapResponse.put("data", reportService.getChartDataForReport(FormatAux.stringToDate(startDate), FormatAux.stringToDate(endDate)));
+            }
+            else {
+                mapResponse.put("status", "ERROR");
+                mapResponse.put("errorMessage", "El formato de fecha es incorrecto.");
+            }
         }
         else {
-            mapResponse.put("status", "null");
+            mapResponse.put("status", "ERROR");
+            mapResponse.put("errorMessage", "La fecha de inicio y fin es requerido.");
         }
-        //mapResponse.put("data", areaService.save(areaCommand.toArea()));
+
         return new ResponseEntity<>(mapResponse, HttpStatus.OK);
     }
 }
