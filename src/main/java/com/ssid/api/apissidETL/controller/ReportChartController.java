@@ -43,4 +43,24 @@ public class ReportChartController {
 
         return new ResponseEntity<>(mapResponse, HttpStatus.OK);
     }
+
+    @RequestMapping(value = {"/incidents/amounts/severity/"}, method = RequestMethod.GET)
+    public ResponseEntity<Map<String, Object>> getAmountsIncidentBySeverity() {
+        Map<String, Object> mapResponse = new HashMap<>();
+
+        mapResponse.put("status", "OK");
+        mapResponse.put("data", reportService.getAmountsIncidentBySeverity());
+
+        return new ResponseEntity<>(mapResponse, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = {"/incidents/amounts/type/"}, method = RequestMethod.GET)
+    public ResponseEntity<Map<String, Object>> getAmountsIncidentByType() {
+        Map<String, Object> mapResponse = new HashMap<>();
+
+        mapResponse.put("status", "OK");
+        mapResponse.put("data", reportService.getAmountsIncidentByType());
+
+        return new ResponseEntity<>(mapResponse, HttpStatus.OK);
+    }
 }
