@@ -1,13 +1,16 @@
-package com.ssid.api.apissidETL.dto;
+package com.ssid.api.apissidETL.DTO;
+
+import java.util.Date;
 
 public class RepoTableDTO {
+    private Date incidentDate;
     private String personalFullName;
     private String personalStatus;
     private int personalAge;
     private String type;
     private String areaName;
     private String incidentDetail;
-    private String incidentServerity;
+    private String incidentSeverity;
     private String incidentReportedBy;
     private String positionName;
     private String positionParent;
@@ -60,14 +63,6 @@ public class RepoTableDTO {
         this.incidentDetail = incidentDetail;
     }
 
-    public String getIncidentServerity() {
-        return incidentServerity;
-    }
-
-    public void setIncidentServerity(String incidentServerity) {
-        this.incidentServerity = incidentServerity;
-    }
-
     public String getIncidentReportedBy() {
         return incidentReportedBy;
     }
@@ -90,5 +85,21 @@ public class RepoTableDTO {
 
     public void setPositionParent(String positionParent) {
         this.positionParent = positionParent;
+    }
+
+    public Date getIncidentDate() {
+        return incidentDate;
+    }
+
+    public void setIncidentDate(Date incidentDate) {
+        this.incidentDate = incidentDate;
+    }
+
+    public String getIncidentSeverity() {
+        return incidentSeverity;
+    }
+
+    public void setIncidentSeverity(String incidentSeverity) {
+        this.incidentSeverity = incidentSeverity;
     }
 }
