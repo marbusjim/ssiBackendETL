@@ -5,14 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name = "DimArea")
+@Entity
+@Table(name = "dim_area")
 public class DimArea {
-//    @Id
-//    @Column(name = "AreaID")
+    @Id
+    @Column(name = "area_id")
     private long id;
 
-//    @Column(name = "AreaName")
+    @Column(name = "area_name", length = 50)
     private String Name;
 
     public long getId() {

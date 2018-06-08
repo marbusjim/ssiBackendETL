@@ -1,6 +1,5 @@
 package com.ssid.api.apissidETL.controller;
 
-import com.ssid.api.apissidETL.command.FilterCommand;
 import com.ssid.api.apissidETL.services.ReportService;
 import com.ssid.api.apissidETL.util.ApiPath;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -5,6 +5,7 @@ import com.ssid.api.apissidETL.repositories.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,4 +26,11 @@ public class ReportServiceImpl implements ReportService {
         reportRepository.findAll().forEach(results::add);
         return results;
     }*/
+
+//    protected EntityManager em;
+//
+//    public List<DimArea> GetIncidentSP()
+//    {
+//
+//    }
 }
