@@ -22,6 +22,14 @@ import java.util.Date;
                         @StoredProcedureParameter(mode = ParameterMode.IN, name = "STARTDATE", type = Date.class),
                         @StoredProcedureParameter(mode = ParameterMode.IN, name = "ENDDATE", type = Date.class)
                 }
+        ),
+        @NamedStoredProcedureQuery(
+                name = "GetAmountIncidentBySeverity",
+                procedureName = "GetAmountIncidentBySeverity"
+        ),
+        @NamedStoredProcedureQuery(
+                name = "GetAmountIncidentByType",
+                procedureName = "GetAmountIncidentByType"
         )
 })
 public class FactIncident implements Serializable {
