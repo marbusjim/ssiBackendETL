@@ -8,9 +8,9 @@ import java.util.Date;
 import java.util.List;
 
 public interface ReportService {
-    List<RepoChartDTO> getChartDataForReport(Date startDate, Date endDate);
+    List<RepoChartDTO> getChartDataForReport(String startDate, String endDate);
 
-    List<RepoTableDTO> getTableDataForReport(Date startDate, Date endDate);
+    List<RepoTableDTO> getTableDataForReport(String startDate, String endDate);
 
     List<ResultDTO> getAmountsIncidentBySeverity();
 

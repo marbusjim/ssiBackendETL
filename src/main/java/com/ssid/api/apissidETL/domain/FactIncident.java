@@ -11,16 +11,16 @@ import java.util.Date;
                 name = "GetIncidentDetails",
                 procedureName = "GetIncidentDetails",
                 parameters = {
-                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "STARTDATE", type = Date.class),
-                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "ENDDATE", type = Date.class)
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "STARTDATE", type = String.class),
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "ENDDATE", type = String.class)
                 }
         ),
         @NamedStoredProcedureQuery(
                 name = "GetIncidentByArea",
                 procedureName = "GetIncidentByArea",
                 parameters = {
-                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "STARTDATE", type = Date.class),
-                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "ENDDATE", type = Date.class)
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "STARTDATE", type = String.class),
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "ENDDATE", type = String.class)
                 }
         ),
         @NamedStoredProcedureQuery(
