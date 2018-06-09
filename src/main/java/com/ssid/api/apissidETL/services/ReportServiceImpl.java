@@ -19,7 +19,7 @@ public class ReportServiceImpl implements ReportService {
     private EntityManager entityManager;
 
     @Override
-    public List<RepoChartDTO> getChartDataForReport(Date startDate, Date endDate) {
+    public List<RepoChartDTO> getChartDataForReport(String startDate, String endDate) {
         List<RepoChartDTO> res = new ArrayList<>();
 
         StoredProcedureQuery query = entityManager.createNamedStoredProcedureQuery("GetIncidentByArea");
@@ -34,7 +34,7 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public List<RepoTableDTO> getTableDataForReport(Date startDate, Date endDate) {
+    public List<RepoTableDTO> getTableDataForReport(String startDate, String endDate) {
         List<RepoTableDTO> res = new ArrayList<>();
 
         StoredProcedureQuery query =
