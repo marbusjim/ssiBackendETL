@@ -2,6 +2,8 @@ package com.ssid.api.apissidETL.services;
 
 import com.ssid.api.apissidETL.DTO.RepoTableDTO;
 import com.ssid.api.apissidETL.DTO.ResultDTO;
+import com.ssid.api.apissidETL.dto.DataChart;
+import com.ssid.api.apissidETL.dto.DataSerie;
 import com.ssid.api.apissidETL.dto.RepoChartDTO;
 import com.sun.xml.internal.fastinfoset.util.StringArray;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.StoredProcedureQuery;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -19,8 +22,8 @@ public class ReportServiceImpl implements ReportService {
     private EntityManager entityManager;
 
     @Override
-    public List<RepoChartDTO> getChartDataForReport(String startDate, String endDate) {
-        List<RepoChartDTO> res = new ArrayList<>();
+    public List<DataChart> getChartDataForReport(String startDate, String endDate) {
+        List<DataChart> res = new ArrayList<>();
 
         StoredProcedureQuery query = entityManager.createNamedStoredProcedureQuery("GetIncidentByArea");
         query.setParameter("STARTDATE", startDate);
@@ -48,16 +51,40 @@ public class ReportServiceImpl implements ReportService {
         return res;
     }
 
-    private List<RepoChartDTO> mapearRepoChart(List<Object[]> resultList) {
-        List<RepoChartDTO> result = new ArrayList<>();
+    private List<DataChart> mapearRepoChart(List<Object[]> resultList) {
+        List<DataChart> result = new ArrayList<>();
 
         if(resultList != null) {
+            HashMap<String, DataChart> aux = new HashMap<>();
+
             for (Object[] res : resultList) {
-                RepoChartDTO data = new RepoChartDTO();
-                data.setNumIncidents((int)res[0]);
-                data.setType((String)res[1]);
-                data.setAreaName((String)res[2]);
-                result.add(data);
+                if(aux.containsKey((String)res[2]))
+                {
+                    DataChart dcAux = aux.get((String)res[2]);
+
+                    DataSerie ds = new DataSerie();
+                    ds.setName((String)res[1]);
+                    ds.setValue((int)res[0]);
+
+                    dcAux.getSeries().add(ds);
+                }
+                else{
+                    DataChart data = new DataChart();
+                    data.setName((String)res[2]);
+                    List<DataSerie> dsl = new ArrayList<>();
+                    DataSerie ds = new DataSerie();
+                    ds.setName((String)res[1]);
+                    ds.setValue((int)res[0]);
+                    dsl.add(ds);
+                    data.setSeries(dsl);
+
+                    aux.put((String)res[2], data);
+                }
+            }
+
+            for (DataChart dcaux:
+                    aux.values()) {
+                result.add(dcaux);
             }
         }
 
