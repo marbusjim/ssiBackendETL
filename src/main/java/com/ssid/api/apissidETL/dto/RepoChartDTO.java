@@ -1,5 +1,7 @@
 package com.ssid.api.apissidETL.dto;
 
+import java.util.List;
+
 public class RepoChartDTO {
     private int numIncidents;
     private String type;
