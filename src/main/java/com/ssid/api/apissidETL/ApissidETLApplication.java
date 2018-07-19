@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ApissidETLApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ApissidETLApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ApissidETLApplication.class, args);
+    }
 }

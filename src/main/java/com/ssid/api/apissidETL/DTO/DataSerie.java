@@ -1,4 +1,4 @@
-package com.ssid.api.apissidETL.dto;
+package com.ssid.api.apissidETL.DTO;
 
 public class DataSerie {
     private String name;
