@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApissidApplication {
+public class ApissidETLApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ApissidApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ApissidETLApplication.class, args);
+    }
 }
